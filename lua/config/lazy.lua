@@ -8,7 +8,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -28,8 +28,6 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
   },
-  -- all plugins default to lazy loading
-  defaults = { lazy = true },
   install = {
     -- automatically install missing plugins before nvim starts
     missing = true,
@@ -38,6 +36,7 @@ require("lazy").setup({
   },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  change_detection = { notify = false, },
   -- disable unecessary nvim default plugins
   performance = {
     rtp = {
