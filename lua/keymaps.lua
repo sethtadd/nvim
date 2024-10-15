@@ -2,6 +2,7 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 local wk = require("which-key")
+local cmp = require 'cmp'
 
 -- Map Ctrl+h/j/k/l to navigate between (windows)
 map('n', '<C-h>', '<C-w>h', opts)
@@ -80,5 +81,95 @@ wk.add({
     mode = { "t" },
     { "<C-\\>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", desc = "Toggle Terminal" },
     { "<esc>",  [[<C-\><C-n>]],                         desc = "Normal Mode" },
+  },
+})
+
+-- Key mappings for nvim-cmp
+wk.add({
+  -- INSERT mode
+  {
+    mode = { "i" },
+    {
+      {
+        "<C-Space>",
+        function()
+          cmp.complete()
+        end,
+        desc = "Trigger Completion"
+      },
+
+      {
+        "<C-n>",
+        function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n", true)
+          end
+        end,
+        desc = "Next Completion Item"
+      },
+
+      {
+        "<C-p>",
+        function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n", true)
+          end
+        end,
+        desc = "Previous Completion Item"
+      },
+
+      {
+        "<C-f>",
+        function()
+          if cmp.visible() then
+            cmp.scroll_docs(4)
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-f>", true, true, true), "n", true)
+          end
+        end,
+        desc = "Scroll Documentation Down"
+      },
+
+      {
+        "<C-b>",
+        function()
+          if cmp.visible() then
+            cmp.scroll_docs(-4)
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-b>", true, true, true), "n", true)
+          end
+        end,
+        desc = "Scroll Documentation Up"
+      },
+
+      {
+        "<C-y>",
+        function()
+          if cmp.visible() and cmp.get_selected_entry() then
+            cmp.confirm({ select = true })
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, true, true), "n", true)
+          end
+        end,
+        desc = "Confirm Completion"
+      },
+
+      {
+        "<esc>",
+        function()
+          if cmp.visible() then
+            cmp.abort()
+          else
+            return vim.api.nvim_replace_termcodes("<esc>", true, false, true)
+          end
+        end,
+        expr = true,
+        desc = "Abort Completion or Exit Insert Mode"
+      },
+    },
   },
 })
