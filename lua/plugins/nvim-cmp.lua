@@ -19,6 +19,7 @@ return {
         end,
       },
       sources = cmp.config.sources({
+        { name = 'copilot' }, -- FIXME: Copilot completions (and comletion keybinds) not set up!
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
       }, {
