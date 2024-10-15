@@ -41,6 +41,10 @@ vim.opt.updatetime = 250
 -- Save undo history
 vim.opt.undofile = true
 
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Use system clipboard as default register, run async to reduce startup time
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
@@ -54,4 +58,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     --  See `:help vim.highlight.on_yank()`
     vim.highlight.on_yank()
   end,
+})
+
+-- Customize the hover window with borders
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "single",
 })

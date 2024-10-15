@@ -23,6 +23,22 @@ return {
         function(server_name)
           -- Settings for individual servers
           local settings = {}
+          -- Pyright specific settings
+          if server_name == "pyright" then
+            settings = {
+              python = {
+                analysis = {
+                  typeCheckingMode = "strict", -- Set strict type checking
+                  reportUnusedVariable = true, -- Warn on unused variables
+                  reportUnusedFunction = true, -- Warn on unused functions
+                  autoSearchPaths = true,
+                  useLibraryCodeForTypes = true,
+                  include = { "**/*.py" } -- Set include for all .py files
+                }
+              }
+            }
+          end
+          -- Lua specific settings
           if server_name == "lua_ls" then
             settings = {
               Lua = {
@@ -41,7 +57,8 @@ return {
               },
             }
           end
-          -- TODO: Fix "iostream not found" etc. The following did not seem to work.
+          -- Clangd specific settings
+          -- FIXME: Fix "iostream not found" etc. The following did not seem to work.
           if server_name == "clangd" then
             settings = {
               clangd = {
