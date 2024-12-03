@@ -1,6 +1,6 @@
 -- init.lua
 
-require('config.lazy')
+require('lazy_bootstrap')
 require('settings')
 require('keymaps')
 require('lsp')

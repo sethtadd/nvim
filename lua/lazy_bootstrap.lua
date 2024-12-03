@@ -1,5 +1,7 @@
 -- From https://lazy.folke.io/installation
 
+-- WARNING: Do not name this file `lazy.lua`; that is the name of the module we're bootstrapping.
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
