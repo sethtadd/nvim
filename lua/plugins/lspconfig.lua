@@ -110,7 +110,6 @@ return {
 
   {
     "jose-elias-alvarez/null-ls.nvim",
-    opts = {},
 
     config = function()
       local null_ls = require("null-ls")
@@ -118,6 +117,11 @@ return {
       -- Register Black as a formatter for Python
       null_ls.setup({
         sources = {
+          -- JavaScript/TypeScript linter
+          null_ls.builtins.diagnostics.eslint_d,  -- Use eslint_d for fast linting
+          null_ls.builtins.code_actions.eslint_d, -- Apply code actions (like auto-fixing)
+          null_ls.builtins.formatting.prettierd,  -- Prettier for formatting (optional)
+          -- Python formatter
           null_ls.builtins.formatting.black.with({
             extra_args = { "--fast" },
           }),
@@ -135,8 +139,8 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
-      ensure_installed = { "black" }, -- Install Black automatically
-      automatic_installation = true,  -- Install any missing formatters/linters
+      ensure_installed = { "black", "eslint_d", "prettierd" }, -- Install Black automatically
+      automatic_installation = true,                           -- Install any missing formatters/linters
     },
   },
 }
