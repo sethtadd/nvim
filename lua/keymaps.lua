@@ -17,9 +17,6 @@ wk.add({
     { "<leader>q",  "<cmd>q<cr>",                                desc = "Quit" },
     { "<leader>w",  "<cmd>w<cr>",                                desc = "Write" },
 
-    -- nvim-tree
-    { "<leader>e",  "<cmd>NvimTreeToggle<cr>",                   desc = "Toggle nvim-tree" },
-
     -- Telescope
     { "<leader>s",  group = "search" },
     { "<leader>sf", "<cmd>Telescope find_files<cr>",             desc = "Find Files" },
