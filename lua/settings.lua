@@ -31,6 +31,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Highlight cursor line
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 -- Don't show default mode text; shown by status line
 vim.opt.showmode = false

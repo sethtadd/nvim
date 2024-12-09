@@ -3,11 +3,12 @@ return {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     opts = {
-      ensure_installed = { "lua", "python", "javascript", "typescript", "cpp" },
+      -- NOTE: latex seems to need to be manually installed, it requires an `npm install -g tree-sitter-cli` then `:TSInstall latex`
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "javascript", "typescript", "cpp", "latex" },
       fold = { enable = true },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = { "markdown" },
       },
       incremental_selection = { enable = true },
       textobjects = {
