@@ -17,6 +17,8 @@ wk.add({
     { "<leader>q",  "<cmd>q<cr>",                                       desc = "Quit" },
     { "<leader>w",  "<cmd>w<cr>",                                       desc = "Write" },
 
+    { "<leader>o",  "<cmd>Oil<cr>",                                     desc = "Open Oil File Browser" },
+
     -- Telescope
     { "<leader>s",  group = "search" },
     { "<leader>sf", "<cmd>Telescope find_files<cr>",                    desc = "Find Files" },
@@ -57,26 +59,34 @@ wk.add({
     -- Treesitter
     {
       -- Incremental selection
-      { "<cr>",  "<cmd>lua require'nvim-treesitter.incremental_selection'.init_selection()<CR>",                  desc = "Start Incremental Selection" },
-      { "<cr>",  "<cmd>lua require'nvim-treesitter.incremental_selection'.node_incremental()<CR>",                desc = "Increment Node" },
-      { "<bs>",  "<cmd>lua require'nvim-treesitter.incremental_selection'.node_decremental()<CR>",                desc = "Decrement Node" },
-      { "<tab>", "<cmd>lua require'nvim-treesitter.incremental_selection'.scope_incremental()<CR>",               desc = "Increment Scope" },
-      -- Text object selection mappings
-      { "af",    "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.outer')<CR>", desc = "Around Function" },
-      { "if",    "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.inner')<CR>", desc = "Inside Function" },
-      { "ac",    "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.outer')<CR>",    desc = "Around Class" },
-      { "ic",    "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.inner')<CR>",    desc = "Inside Class" },
+      { "<cr>", "<cmd>lua require'nvim-treesitter.incremental_selection'.init_selection()<CR>",                  desc = "Start Incremental Selection" },
+      { "<cr>", "<cmd>lua require'nvim-treesitter.incremental_selection'.node_incremental()<CR>",                desc = "Increment Node" },
+      { "<bs>", "<cmd>lua require'nvim-treesitter.incremental_selection'.node_decremental()<CR>",                desc = "Decrement Node" },
+
+      --   -- NOTE: Tab and Ctrl-i (Ctrl-i is for moving forward in navigation jumplist) are treated as the same by most terminals, so we need a different key if we want this functionality
+      --   -- { "<tab>", "<cmd>lua require'nvim-treesitter.incremental_selection'.scope_incremental()<CR>",               desc = "Increment Scope" },
+
       -- Moving between function/class text objects
-      { "]f",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_start('@function.outer')<CR>",     desc = "Next Function Start" },
-      { "]F",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_end('@function.outer')<CR>",       desc = "Next Function End" },
-      { "]c",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_start('@class.outer')<CR>",        desc = "Next Class Start" },
-      { "]C",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_end('@class.outer')<CR>",          desc = "Next Class End" },
-      { "[f",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_start('@function.outer')<CR>", desc = "Previous Function Start" },
-      { "[F",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_end('@function.outer')<CR>",   desc = "Previous Function End" },
-      { "[c",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_start('@class.outer')<CR>",    desc = "Previous Class Start" },
-      { "[C",    "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_end('@class.outer')<CR>",      desc = "Previous Class End" },
+      { "]f",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_start('@function.outer')<CR>",     desc = "Next Function Start" },
+      { "]F",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_end('@function.outer')<CR>",       desc = "Next Function End" },
+      { "]c",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_start('@class.outer')<CR>",        desc = "Next Class Start" },
+      { "]C",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_next_end('@class.outer')<CR>",          desc = "Next Class End" },
+      { "[f",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_start('@function.outer')<CR>", desc = "Previous Function Start" },
+      { "[F",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_end('@function.outer')<CR>",   desc = "Previous Function End" },
+      { "[c",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_start('@class.outer')<CR>",    desc = "Previous Class Start" },
+      { "[C",   "<cmd>lua require'nvim-treesitter.textobjects.move'.goto_previous_end('@class.outer')<CR>",      desc = "Previous Class End" },
     },
 
+  },
+
+  -- Visual mode only
+  {
+    mode = { "v" },
+    -- Treesitter text object selection mappings
+    { "af", "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.outer')<CR>", desc = "Around Function" },
+    { "if", "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.inner')<CR>", desc = "Inside Function" },
+    { "ac", "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.outer')<CR>",    desc = "Around Class" },
+    { "ic", "<cmd>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.inner')<CR>",    desc = "Inside Class" },
   },
 
   -- Terminal mode

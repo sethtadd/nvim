@@ -17,6 +17,7 @@ vim.opt.foldlevel = 99                          -- Start with all folds open
 vim.keymap.set('n', '<esc>', '<cmd>nohlsearch<CR>')
 
 -- Use smartcase when / searching
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Enable 24 bit RBG colors
