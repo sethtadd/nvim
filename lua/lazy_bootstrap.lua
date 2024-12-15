@@ -37,7 +37,7 @@ require("lazy").setup({
     colorscheme = { "habamax" },
   },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false }, -- Check for updates but don't prompt to update when we open nvim
   change_detection = { notify = false, },
   -- disable unecessary nvim default plugins
   performance = {
