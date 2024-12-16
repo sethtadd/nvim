@@ -14,57 +14,60 @@ wk.add({
   -- NORMAL and VISUAL modes
   {
     mode = { "n", "v" },
-    { "<leader>q",  "<cmd>q<cr>",                                                           desc = "Quit" },
-    { "<leader>w",  "<cmd>w<cr>",                                                           desc = "Write" },
+    { "<leader>q",   "<cmd>q<cr>",                                                           desc = "Quit" },
+    { "<leader>w",   "<cmd>w<cr>",                                                           desc = "Write" },
 
-    { "<leader>o",  "<cmd>Oil<cr>",                                                         desc = "Open Oil File Browser" },
+    { "<leader>o",   "<cmd>Oil<cr>",                                                         desc = "Open Oil File Browser" },
 
     -- Telescope
-    { "<leader>s",  group = "search" },
-    { "<leader>sf", "<cmd>Telescope find_files<cr>",                                        desc = "Find Files" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>",                                         desc = "Live Grep" },
-    { "<leader>sb", "<cmd>Telescope buffers<cr>",                                           desc = "List Buffers" },
-    { "<leader>so", "<cmd>Telescope oldfiles<cr>",                                          desc = "Find Old Files" },
-    { "<leader>ss", "<cmd>Telescope grep_string<cr>",                                       desc = "Grep String Under Cursor" },
-    { "<leader>st", "<cmd>Telescope treesitter<cr>",                                        desc = "Treesitter Symbols" },
+    { "<leader>s",   group = "search" },
+    { "<leader>sf",  "<cmd>Telescope find_files<cr>",                                        desc = "Find Files" },
+    { "<leader>sg",  "<cmd>Telescope live_grep<cr>",                                         desc = "Live Grep" },
+    { "<leader>sb",  "<cmd>Telescope buffers<cr>",                                           desc = "List Buffers" },
+    { "<leader>so",  "<cmd>Telescope oldfiles<cr>",                                          desc = "Find Old Files" },
+    { "<leader>ss",  "<cmd>Telescope grep_string<cr>",                                       desc = "Grep String Under Cursor" },
+    { "<leader>st",  "<cmd>Telescope treesitter<cr>",                                        desc = "Treesitter Symbols" },
 
     -- Zk
     -- https://github.com/zk-org/zk-nvim#example-mappings
-    { "<leader>z",  group = "zk" },
-    { "<leader>zo", "<cmd>Telescope zk notes<cr>",                                          desc = "Open Notes" },
-    { "<leader>zt", "<cmd>Telescope zk tags<cr>",                                           desc = "Tags" },
-    { "<leader>zn", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'ephemeral'}<cr>", desc = "New Note" },
-    { "<leader>zb", "<cmd>ZkBacklinks<cr>",                                                 desc = "Backlinks" },
-    { "<leader>zl", "<cmd>ZkLinks<cr>",                                                     desc = "Links" },
-    { "<leader>zi", ":'<,'>ZkInsertLinkAtSelection<cr>",                                    desc = "Insert Link At Selection" },
+    { "<leader>z",   group = "zk" },
+    { "<leader>zn",  group = "New Note" },
+    { "<leader>zne", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'ephemeral'}<cr>", desc = "New Ephemeral Note" },
+    { "<leader>znr", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'reference'}<cr>", desc = "New Reference Note" },
+    { "<leader>znj", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'journal'}<cr>",   desc = "New Journal Note" },
+    { "<leader>zo",  "<cmd>Telescope zk notes<cr>",                                          desc = "Open Notes" },
+    { "<leader>zt",  "<cmd>Telescope zk tags<cr>",                                           desc = "Tags" },
+    { "<leader>zb",  "<cmd>ZkBacklinks<cr>",                                                 desc = "Backlinks" },
+    { "<leader>zl",  "<cmd>ZkLinks<cr>",                                                     desc = "Links" },
+    { "<leader>zi",  ":'<,'>ZkInsertLinkAtSelection<cr>",                                    desc = "Insert Link At Selection" },
 
     -- LSP actions
-    { "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>",                                desc = "Go to Definition" },
-    { "gi",         "<cmd>Telescope lsp_implementations<CR>",                               desc = "Go to Implementation" },
-    { "gr",         "<cmd>Telescope lsp_references<CR>",                                    desc = "Go to References" },
-    { "K",          "<cmd>lua vim.diagnostic.buf.hover()<CR>",                              desc = "Hover Documentation" },
-    { "[d",         "<cmd>lua vim.diagnostic.goto_prev()<CR>",                              desc = "Previous Diagnostic" },
-    { "]d",         "<cmd>lua vim.diagnostic.goto_next()<CR>",                              desc = "Next Diagnostic" },
-    { "<leader>l",  group = "lsp" },
-    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>",                                    desc = "Rename Symbol" },
-    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>",                               desc = "Code Action" },
-    { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>",                                    desc = "Format Document" },
-    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",                            desc = "Signature Help" },
+    { "gd",          "<cmd>lua vim.lsp.buf.definition()<CR>",                                desc = "Go to Definition" },
+    { "gi",          "<cmd>Telescope lsp_implementations<CR>",                               desc = "Go to Implementation" },
+    { "gr",          "<cmd>Telescope lsp_references<CR>",                                    desc = "Go to References" },
+    { "K",           "<cmd>lua vim.diagnostic.buf.hover()<CR>",                              desc = "Hover Documentation" },
+    { "[d",          "<cmd>lua vim.diagnostic.goto_prev()<CR>",                              desc = "Previous Diagnostic" },
+    { "]d",          "<cmd>lua vim.diagnostic.goto_next()<CR>",                              desc = "Next Diagnostic" },
+    { "<leader>l",   group = "lsp" },
+    { "<leader>lr",  "<cmd>lua vim.lsp.buf.rename()<CR>",                                    desc = "Rename Symbol" },
+    { "<leader>la",  "<cmd>lua vim.lsp.buf.code_action()<CR>",                               desc = "Code Action" },
+    { "<leader>lf",  "<cmd>lua vim.lsp.buf.format()<CR>",                                    desc = "Format Document" },
+    { "<leader>ls",  "<cmd>lua vim.lsp.buf.signature_help()<CR>",                            desc = "Signature Help" },
 
     -- Git actions
-    { "<leader>g",  group = "git" },
-    { "<leader>gs", "<cmd>Git<CR>",                                                         desc = "Git Status" },
-    { "<leader>gd", "<cmd>Gvdiffsplit<CR>",                                                 desc = "Git Diff" },
-    { "<leader>gb", "<cmd>Git blame<CR>",                                                   desc = "Git Blame" },
+    { "<leader>g",   group = "git" },
+    { "<leader>gs",  "<cmd>Git<CR>",                                                         desc = "Git Status" },
+    { "<leader>gd",  "<cmd>Gvdiffsplit<CR>",                                                 desc = "Git Diff" },
+    { "<leader>gb",  "<cmd>Git blame<CR>",                                                   desc = "Git Blame" },
 
     -- Key mappings for toggleterm
-    { "<C-\\>",     "<cmd>exe v:count1 . 'ToggleTerm'<CR>",                                 desc = "Toggle Terminal" },
+    { "<C-\\>",      "<cmd>exe v:count1 . 'ToggleTerm'<CR>",                                 desc = "Toggle Terminal" },
 
     -- Key mappings for nabla.nvim
-    { "<leader>p",  "<cmd>lua require'nabla'.popup()<CR>",                                  desc = "Nabla Popup" },
-    { "<leader>n",  "<cmd>lua require('nabla').toggle_virt()<CR>",                          desc = "Toggle Nabla Inline Rendering" },
+    { "<leader>p",   "<cmd>lua require'nabla'.popup()<CR>",                                  desc = "Nabla Popup" },
+    { "<leader>n",   "<cmd>lua require('nabla').toggle_virt()<CR>",                          desc = "Toggle Nabla Inline Rendering" },
     -- render-markdown.nvim
-    { "<leader>m",  "<cmd>lua require('render-markdown').toggle()<CR>",                     desc = "Toggle Render Markdown" },
+    { "<leader>m",   "<cmd>lua require('render-markdown').toggle()<CR>",                     desc = "Toggle Render Markdown" },
 
     -- Treesitter
     {
