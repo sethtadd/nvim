@@ -5,10 +5,11 @@ return {
     opts = {
       -- NOTE: latex seems to need to be manually installed, it requires an `npm install -g tree-sitter-cli` then `:TSInstall latex`
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "javascript", "typescript", "cpp", "latex" },
+      auto_install = true,
       fold = { enable = true },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { "markdown" },
+        additional_vim_regex_highlighting = { "markdown", "markdown_inline" },
       },
       incremental_selection = { enable = true },
       textobjects = {
