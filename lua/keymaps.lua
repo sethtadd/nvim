@@ -35,6 +35,7 @@ wk.add({
     { "<leader>zne", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'ephemeral'}<cr>", desc = "New Ephemeral Note" },
     { "<leader>znr", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'reference'}<cr>", desc = "New Reference Note" },
     { "<leader>znj", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'journal'}<cr>",   desc = "New Journal Note" },
+    { "<leader>znw", "<cmd>ZkNew { title = vim.fn.input('Title: '), dir = 'work'}<cr>",      desc = "New Work Note" },
     { "<leader>zo",  "<cmd>Telescope zk notes<cr>",                                          desc = "Open Notes" },
     { "<leader>zt",  "<cmd>Telescope zk tags<cr>",                                           desc = "Tags" },
     { "<leader>zb",  "<cmd>ZkBacklinks<cr>",                                                 desc = "Backlinks" },
