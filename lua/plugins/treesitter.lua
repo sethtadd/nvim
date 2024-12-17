@@ -3,7 +3,8 @@ return {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     opts = {
-      -- NOTE: latex seems to need to be manually installed, it requires an `npm install -g tree-sitter-cli` then `:TSInstall latex`
+      -- NOTE: latex seems to need to be manually installed, it requires an `npm install -g tree-sitter-cli` then `:TSInstall latex`.
+      -- NOTE: Maybe none of these are getting auto-installed; I just had to manually install cpp as well with `TSInstall cpp`.
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "javascript", "typescript", "cpp", "latex" },
       auto_install = true,
       fold = { enable = true },

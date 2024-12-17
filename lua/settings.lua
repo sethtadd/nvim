@@ -7,6 +7,12 @@ vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.shiftwidth = 2   -- Indent commands use 2 spaces
 vim.opt.tabstop = 2      -- Display tabs as two spaces
 
+-- Indenting
+vim.opt.wrap = true -- Enable soft wrapping of long lines
+vim.opt.breakindent = true -- Indent wrapped lines to align with the first line
+vim.opt.showbreak = "╰─" -- Add some characters to the start of wrapped lines
+vim.opt.linebreak = true -- When line wrapping, don't break in the middle of words
+
 -- Folding
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Use Treesitter for folding
