@@ -1,16 +1,17 @@
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
 local wk = require("which-key")
 local cmp = require 'cmp'
 
--- Map Ctrl+h/j/k/l to navigate between (windows)
-map('n', '<C-h>', '<C-w>h', opts)
-map('n', '<C-j>', '<C-w>j', opts)
-map('n', '<C-k>', '<C-w>k', opts)
-map('n', '<C-l>', '<C-w>l', opts)
-
 wk.add({
+  {
+    mode = { "n" },
+
+    -- Map Ctrl+h/j/k/l to navigate between windows
+    { "<C-h>", "<C-w>h", desc = "Navigate Left" },
+    { "<C-j>", "<C-w>j", desc = "Navigate Down" },
+    { "<C-k>", "<C-w>k", desc = "Navigate Up" },
+    { "<C-l>", "<C-w>l", desc = "Navigate Right" },
+  },
+
   -- NORMAL and VISUAL modes
   {
     mode = { "n", "v" },
