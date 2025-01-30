@@ -33,8 +33,7 @@ wk.add({
     { "<leader>o",   "<cmd>Oil<cr>",                                                         desc = "Open Oil File Browser" },
 
     -- Leap
-    { "s",           "<Plug>(leap-forward)",                                                 desc = "Leap Forward" },
-    { "S",           "<Plug>(leap-backward)",                                                desc = "Leap Backward" },
+    { "s",           "<Plug>(leap)",                                                         desc = "Leap Forward" },
 
     -- Telescope
     { "<leader>s",   group = "search" },
