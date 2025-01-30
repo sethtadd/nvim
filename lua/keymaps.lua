@@ -25,10 +25,16 @@ wk.add({
   -- NORMAL and VISUAL modes
   {
     mode = { "n", "v" },
+    -- General
     { "<leader>q",   "<cmd>q<cr>",                                                           desc = "Quit" },
     { "<leader>w",   "<cmd>w<cr>",                                                           desc = "Write" },
 
+    -- Oil
     { "<leader>o",   "<cmd>Oil<cr>",                                                         desc = "Open Oil File Browser" },
+
+    -- Leap
+    { "s",           "<Plug>(leap-forward)",                                                 desc = "Leap Forward" },
+    { "S",           "<Plug>(leap-backward)",                                                desc = "Leap Backward" },
 
     -- Telescope
     { "<leader>s",   group = "search" },
