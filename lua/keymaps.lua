@@ -5,11 +5,21 @@ wk.add({
   {
     mode = { "n" },
 
-    -- Map Ctrl+h/j/k/l to navigate between windows
-    { "<C-h>", "<C-w>h", desc = "Navigate Left" },
-    { "<C-j>", "<C-w>j", desc = "Navigate Down" },
-    { "<C-k>", "<C-w>k", desc = "Navigate Up" },
-    { "<C-l>", "<C-w>l", desc = "Navigate Right" },
+    -- Navigate between windows
+    { "<C-h>",             "<C-w>h",                                                desc = "Navigate Left" },
+    { "<C-j>",             "<C-w>j",                                                desc = "Navigate Down" },
+    { "<C-k>",             "<C-w>k",                                                desc = "Navigate Up" },
+    { "<C-l>",             "<C-w>l",                                                desc = "Navigate Right" },
+    -- Moving between splits
+    { "<A-h>",             "<cmd>lua require('smart-splits').resize_left()<CR>",    desc = "Resize Left" },
+    { "<A-j>",             "<cmd>lua require('smart-splits').resize_down()<CR>",    desc = "Resize Down" },
+    { "<A-k>",             "<cmd>lua require('smart-splits').resize_up()<CR>",      desc = "Resize Up" },
+    { "<A-l>",             "<cmd>lua require('smart-splits').resize_right()<CR>",   desc = "Resize Right" },
+    -- Swapping buffers between windows
+    { "<leader><leader>h", "<cmd>lua require('smart-splits').swap_buf_left()<CR>",  desc = "Swap Buffer Left" },
+    { "<leader><leader>j", "<cmd>lua require('smart-splits').swap_buf_down()<CR>",  desc = "Swap Buffer Down" },
+    { "<leader><leader>k", "<cmd>lua require('smart-splits').swap_buf_up()<CR>",    desc = "Swap Buffer Up" },
+    { "<leader><leader>l", "<cmd>lua require('smart-splits').swap_buf_right()<CR>", desc = "Swap Buffer Right" },
   },
 
   -- NORMAL and VISUAL modes
