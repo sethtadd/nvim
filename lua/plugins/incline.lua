@@ -3,15 +3,15 @@ return {
   event = 'VeryLazy', -- Lazy load incline
   opts = {
     window = {
-      padding = 2,
+      padding = 0,
       margin = {
         vertical = {
-          top = 2,
+          top = 0,
           bottom = 0,
         },
         horizontal = {
           left = 0,
-          right = 2,
+          right = 0,
         },
       },
     },
@@ -23,16 +23,17 @@ return {
 
       local segments = {}
 
+      if modified then
+        local red = '#f38ba8'
+        table.insert(segments, { '  ', guifg = red })
+      end
+
       if icon and #icon then
         table.insert(segments, { icon, guifg = color })
         table.insert(segments, { ' ' })
       end
 
       table.insert(segments, { filename })
-
-      if modified then
-        table.insert(segments, { ' ', guifg = 'red' })
-      end
 
       return segments
     end,
